@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import './assets/scss/App.scss';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import React, { Suspense, useState } from 'react';
+import  NotFound  from './components/NotFound/NotFound';
+import GlobalLoading from './components/GlobalLoading/GlobalLoading';
+// import  Images from './assets/images/loader.svg';
+
+// Lazy loading
+const Home = React.lazy(() => import('./features/home/Home'));
+const Login = React.lazy(() => import('./features/auth/Login'));
+
+// Lazy loading
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [loading, setLoading] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
+    return (
+        <>
+            { loading ? (
+                <GlobalLoading />
+                )  :  (
+                    <Router>
+                        <div className="App">
+                            {/* share componets */}
+
+
+                            {/* routes */}
+                            <Suspense fallback={<GlobalLoading />}>
+                                <Switch>
+                                    <Redirect exact from="/home" to="/" />
+
+                                    <Route exact path="/login" component={Login} />
+                                    <Route exact path="/" component={Home} />
+
+                                    <Route component={NotFound} />
+                                </Switch>
+                            </Suspense>
+                            {/* common components */}
+                        </div>
+                    </Router>
+                )
+            }
+        </>
+    );
 }
 
 export default App;
