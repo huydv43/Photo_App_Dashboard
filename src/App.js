@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import React, { Suspense, useState } from 'react';
 import  NotFound  from './components/NotFound/NotFound';
 import GlobalLoading from './components/GlobalLoading/GlobalLoading';
-// import  Images from './assets/images/loader.svg';
+import AuthenticatedRoute from './configs/AuthenticatedRoute';
+import Header from './components/Header/Header';
+import MainRoute from './configs/MainRoute';
 
 // Lazy loading
 const Home = React.lazy(() => import('./features/home/Home'));
@@ -15,6 +17,12 @@ const Login = React.lazy(() => import('./features/auth/Login'));
 function App() {
     const [loading, setLoading] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
+
+    const handleSetAuth = (auth) => {
+        setIsAuth(auth);
+    }
+
+
     return (
         <>
             { loading ? (
@@ -22,18 +30,14 @@ function App() {
                 )  :  (
                     <Router>
                         <div className="App">
-                            {/* share componets */}
-
-
-                            {/* routes */}
                             <Suspense fallback={<GlobalLoading />}>
                                 <Switch>
-                                    <Redirect exact from="/home" to="/" />
-
-                                    <Route exact path="/login" component={Login} />
-                                    <Route exact path="/" component={Home} />
-
-                                    <Route component={NotFound} />
+                                    <Route exact path="/login">
+                                        <Login handleSetAuth={handleSetAuth} />
+                                    </Route>
+                                    <AuthenticatedRoute>
+                                        <MainRoute />
+                                    </AuthenticatedRoute>
                                 </Switch>
                             </Suspense>
                             {/* common components */}

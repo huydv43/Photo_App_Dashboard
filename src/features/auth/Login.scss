@@ -1,0 +1,55 @@
+.authentication {
+    background: #222 url('../../assets/images/background-login.jpg') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    
+}
+
+.custom-form {
+    
+    padding: 20px;
+    margin: auto;
+    
+    border-radius: 8px;
+    border: .1px solid rgb(10, 5, 5);
+    // box-shadow: 0 0 16px rgb(41 42 51 / 6%), 0 6px 20px rgb(41 42 51 / 2%);
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px auto 15px auto;
+
+        .header__title {
+            margin-top: 5px;
+            text-align: center;
+            font-size: 22px;
+            font-family: cursive;
+            color: #464444;
+        }
+
+        .custom-form__img {
+            height: 64px;
+            width: 64px;
+
+            animation-name: spin;
+            animation-duration: 5000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear; 
+
+
+            @keyframes spin {
+                from {
+                    transform:rotate(0deg);
+                }
+                to {
+                    transform:rotate(360deg);
+                }
+            }
+        }
+    }
+}
+
