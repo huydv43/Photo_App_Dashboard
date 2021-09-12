@@ -10,7 +10,6 @@ const Home = React.lazy(() => import('../features/home/Home'))
 function MainRoute() {
     return (
         <>
-        <Header />
         <Switch>
             <Redirect exact from="/home" to="/" />
             <AuthenticatedRoute exact path="/" component={Home} />

@@ -13,14 +13,14 @@ const axiosClient = axios.create({
     paramsSerializer: (params) => queryString.stringify(params),
 });
 
-axiosClient.interceptors.request.use(
-    (config) => {
-        return config;
-    },
-    (error) => {
-        throw error;
-    },
-);
+axiosClient.interceptors.request.use(async (config) => {
+    const token = await localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  
+    return config;
+});
 
 axios.interceptors.response.use(
     (response) => {

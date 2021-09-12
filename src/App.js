@@ -1,4 +1,5 @@
 import './assets/scss/App.scss';
+import './assets/css/grid.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import React, { Suspense, useState } from 'react';
 import  NotFound  from './components/NotFound/NotFound';
