@@ -1,27 +1,28 @@
 
-
 .side-bar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 250px;
     height: 100vh;
+    transition: all .5s;
 
     background-color: #e6e6e6;
+
+    
 
     .logo {
         display: flex;
         flex-direction: row;
         justify-content: start;
-        // align-items: baseline;
-        // height: 80px;
         padding: 20px 0px 20px 20px;
 
         border-bottom: 1px solid rgba(31, 30, 30, 0.2);
         
 
         .logo__icon {
-            font-size: 26px;
+            margin-top: 5px;
+            font-size: 20px;
             color: black;
 
             &:hover {
@@ -100,7 +101,7 @@
 
                     .toggle__icon {
                         transform: rotate(-20deg);
-                        transition: all .5s ease;
+                        transition: all 0.5s;
                     }
                 }
             }
@@ -110,6 +111,7 @@
 
                 .toggle__icon {
                     transform: rotate(20deg);
+                    transition: all 0.5s;
                 }
             }
             .menu__title {
@@ -136,20 +138,18 @@
                 }
             }
         }
-        // span {
-        //     
-        //     font-size: 18px;
-        //     font-weight: 500;
-        //     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        
 
-            
-        // }
+        
     }
 }
 
-// 
-.side-bar-hide {
-    position:absolute;
-    top: 0;
-    left: -250px;
+
+
+@media only screen and (max-width: 749px){
+    
+    .side-bar {
+        display: none;
+        transition: all .5;
+    }
 }

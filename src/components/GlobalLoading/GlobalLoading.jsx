@@ -1,11 +1,7 @@
+import Images from 'constants/Images';
 import React from 'react';
 import './GlobalLoading.scss';
-import PropTypes from 'prop-types';
-import  Images from '../../constants/Images';
 
-GlobalLoading.propTypes = {
-    
-};
 
 function GlobalLoading() {
     return (

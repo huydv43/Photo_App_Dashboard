@@ -1,11 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-Header.propTypes = {
-    
-};
 
-function Header(props) {
+function Header() {
     return (
         <div>
             this is header 

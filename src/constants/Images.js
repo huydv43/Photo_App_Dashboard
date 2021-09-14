@@ -1,6 +1,7 @@
-import globalLoading from '../assets/images/loader.svg';
-import logoLogin from'../assets/images/Logo-login.svg';
-import AdminUser from '../assets/images/admin.jpg'
+import globalLoading from 'assets/images/loader.svg';
+import logoLogin from 'assets/images/Logo-login.svg'
+import AdminUser from 'assets/images/admin.jpg';
+
 
 
 const Images = {

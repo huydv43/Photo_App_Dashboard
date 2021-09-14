@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Login.scss';
-import Images from '../../constants/Images';
 import PropTypes from 'prop-types';
-import Auth from '../../apis/Auth';
 import { useHistory } from 'react-router';
+import Images from 'constants/Images';
+import Auth from 'apis/Auth';
 
 Login.propTypes = {
     handleSetAuth: PropTypes.func,

@@ -1,9 +1,7 @@
 import React from 'react';
-import AuthenticatedRoute from './AuthenticatedRoute';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import NotFound from '../components/NotFound/NotFound';
-import Header from '../components/Header/Header';
-
+import AuthenticatedRoute from './AuthenticatedRoute';
+import NotFound from 'components/NotFound/NotFound';
 
 const Home = React.lazy(() => import('../features/home/Home'))
 

@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Redirect } from "react-router-dom";
-import PropTypes from 'prop-types';
 
-AuthenticatedRoute.propTypes = {
-    
-};
 
 function AuthenticatedRoute({ component: Component, ...rest }) {
     const [isAuth, setIsAuth] = useState(true);

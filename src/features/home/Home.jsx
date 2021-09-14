@@ -1,11 +1,10 @@
+import NotFound from 'components/NotFound/NotFound';
 import React from 'react';
-import './Home.scss';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import NotFound from '../../components/NotFound/NotFound';
+import './Home.scss';
 import Main from './pages/Main/Main';
 
 
-import PropTypes from 'prop-types';
 
 Home.propTypes = {
     

@@ -1,12 +1,10 @@
-import './assets/scss/App.scss';
-import './assets/css/grid.css';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import GlobalLoading from 'components/GlobalLoading/GlobalLoading';
+import AuthenticatedRoute from 'configs/AuthenticatedRoute';
+import MainRoute from 'configs/MainRoute';
 import React, { Suspense, useState } from 'react';
-import  NotFound  from './components/NotFound/NotFound';
-import GlobalLoading from './components/GlobalLoading/GlobalLoading';
-import AuthenticatedRoute from './configs/AuthenticatedRoute';
-import Header from './components/Header/Header';
-import MainRoute from './configs/MainRoute';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './assets/css/grid.css';
+import './assets/scss/App.scss';
 
 // Lazy loading
 const Home = React.lazy(() => import('./features/home/Home'));
@@ -36,9 +34,8 @@ function App() {
                                     <Route exact path="/login">
                                         <Login handleSetAuth={handleSetAuth} />
                                     </Route>
-                                    <AuthenticatedRoute>
-                                        <MainRoute />
-                                    </AuthenticatedRoute>
+                                    <AuthenticatedRoute component={MainRoute} />
+                                        
                                 </Switch>
                             </Suspense>
                             {/* common components */}
