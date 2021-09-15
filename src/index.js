@@ -1,5 +1,7 @@
 import App from 'App';
-import 'assets/scss/index.scss';
+import 'utils/scss/index.scss';
+import 'utils/css/grid.css';
+import 'antd/dist/antd.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

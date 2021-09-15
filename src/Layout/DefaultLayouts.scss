@@ -1,0 +1,49 @@
+.logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+  .info {
+    display: flex;
+    margin-bottom: 10px;
+
+    .ant-image {
+      .ant-image-mask {
+        margin-left: 16px;
+      }
+      .ant-image-mask-info {
+        .action {
+          display: none;
+        }
+      }
+    }
+    .info__avatar {
+      height: 49px;
+      width: 49px;
+      margin-left: 15px;
+      border: 2px solid white;
+      border-radius: 6px;
+    }
+    .hide-info-content {
+      display: none;
+    }
+    .info-content {
+      margin-left: 20px;
+      font-size: 14px;
+      text-align: center;
+      color: white;
+
+      .info-content__name {
+        display: block;
+        font-size: 14px;
+      }
+      .info-content__role {
+        display: block;
+        font-size: 12px;
+      }
+    }
+  }

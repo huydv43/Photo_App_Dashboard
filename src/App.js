@@ -1,49 +1,27 @@
 import GlobalLoading from 'components/GlobalLoading/GlobalLoading';
+import Login from 'features/Login/Login';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import NotFound from 'components/NotFound/NotFound';
 import AuthenticatedRoute from 'configs/AuthenticatedRoute';
-import MainRoute from 'configs/MainRoute';
-import React, { Suspense, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './assets/css/grid.css';
-import './assets/scss/App.scss';
+import DefaultLayouts from 'Layout/DefaultLayouts';
 
-// Lazy loading
-const Home = React.lazy(() => import('./features/home/Home'));
-const Login = React.lazy(() => import('./features/auth/Login'));
-
-// Lazy loading
 
 
 function App() {
-    const [loading, setLoading] = useState(false);
-    const [isAuth, setIsAuth] = useState(false);
-
-    const handleSetAuth = (auth) => {
-        setIsAuth(auth);
-    }
-
 
     return (
-        <>
-            { loading ? (
-                <GlobalLoading />
-                )  :  (
-                    <Router>
-                        <div className="App">
-                            <Suspense fallback={<GlobalLoading />}>
-                                <Switch>
-                                    <Route exact path="/login">
-                                        <Login handleSetAuth={handleSetAuth} />
-                                    </Route>
-                                    <AuthenticatedRoute component={MainRoute} />
-                                        
-                                </Switch>
-                            </Suspense>
-                            {/* common components */}
-                        </div>
-                    </Router>
-                )
-            }
-        </>
+        <div className="app">
+            <BrowserRouter>
+                <Suspense fallback={<GlobalLoading />}>
+                    <Switch>
+                        <Route exact path="/login" component={Login} />
+                        <AuthenticatedRoute component={DefaultLayouts} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </Suspense>
+            </BrowserRouter>
+        </div>
     );
 }
 
